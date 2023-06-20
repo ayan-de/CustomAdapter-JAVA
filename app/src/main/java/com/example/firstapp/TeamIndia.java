@@ -8,15 +8,19 @@ public class TeamIndia {
 
     public static final int NO_IMAGE_PROVIDED = -1;
 
-    public TeamIndia(String pName, String pRole) {
+    private int audioResourceId;
+
+    public TeamIndia(String pName, String pRole, int audioresourceid) {
         playerName = pName;
         playerRole = pRole;
+        audioResourceId = audioresourceid;
     }
 
-    public TeamIndia(String pName, String pRole, int iResource) {
+    public TeamIndia(String pName, String pRole, int iResource,int audioresourceid) {
         playerName = pName;
         playerRole = pRole;
         imageResource = iResource;
+        audioResourceId = audioresourceid;
     }
 
     public String getName() {
@@ -33,5 +37,8 @@ public class TeamIndia {
 
     public boolean hasImage(){
         return imageResource != NO_IMAGE_PROVIDED;
+    }
+    public int getAudioResourceId(){
+        return audioResourceId;
     }
 }
