@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView activity1 = (TextView) findViewById(R.id.Activity1);
         TextView activity2 = (TextView) findViewById(R.id.Activity2);
+        TextView activity3 = (TextView) findViewById(R.id.Activity3);
+        TextView activity4 = (TextView) findViewById(R.id.Activity4);
         activity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +32,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(i);
+            }
+        });
+
+        activity3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(i);
+            }
+        });
+
+        activity4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, MainActivity4.class);
                 startActivity(i);
             }
         });
