@@ -4,7 +4,9 @@ public class TeamIndia {
     private String playerName;
     private String playerRole;
 
-    private int imageResource;
+    private int imageResource = NO_IMAGE_PROVIDED;
+
+    public static final int NO_IMAGE_PROVIDED = -1;
 
     public TeamIndia(String pName, String pRole) {
         playerName = pName;
@@ -27,5 +29,9 @@ public class TeamIndia {
 
     public int getImage() {
         return imageResource;
+    }
+
+    public boolean hasImage(){
+        return imageResource != NO_IMAGE_PROVIDED;
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +40,15 @@ public class TeamAdapter extends ArrayAdapter<TeamIndia> {
 
         roleTextView.setText(currentPlayer.getRole());
 
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+
+        if(currentPlayer.hasImage()) {
+            imageView.setImageResource(currentPlayer.getImage());
+            imageView.setVisibility(View.VISIBLE);
+        }
+        else {
+            imageView.setVisibility(View.GONE);
+        }
         return listItemView;
     }
 }
