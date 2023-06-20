@@ -17,11 +17,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView activity1 = (TextView) findViewById(R.id.Activity1);
-
+        TextView activity2 = (TextView) findViewById(R.id.Activity2);
         activity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, MainActivity1.class);
+                startActivity(i);
+            }
+        });
+
+        activity2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, MainActivity2.class);
                 startActivity(i);
             }
         });
