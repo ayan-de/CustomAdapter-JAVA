@@ -1,8 +1,8 @@
 package com.example.firstapp;
 
 public class TeamIndia {
-    String playerName;
-    String playerRole;
+    private String playerName;
+    private String playerRole;
 
     public TeamIndia(String pName, String pRole) {
         playerName = pName;
