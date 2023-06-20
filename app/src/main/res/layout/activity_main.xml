@@ -36,36 +36,6 @@
             android:background="@color/green"
             android:text="Activity4" />
 
-        <TextView
-            android:id="@+id/Activity5"
-            style="@style/CategoryStyle"
-            android:background="@color/yellow"
-            android:text="Activity5" />
-
-        <TextView
-            android:id="@+id/Activity6"
-            style="@style/CategoryStyle"
-            android:background="@color/orange"
-            android:text="Activity6" />
-
-        <TextView
-            android:id="@+id/Activity7"
-            style="@style/CategoryStyle"
-            android:background="@color/red"
-            android:text="Activity7" />
-
-        <TextView
-            android:id="@+id/Activity8"
-            style="@style/CategoryStyle"
-            android:background="@color/red"
-            android:text="Activity8" />
-
-        <TextView
-            android:id="@+id/Activity9"
-            style="@style/CategoryStyle"
-            android:background="@color/red"
-            android:text="Activity9" />
-
 
     </LinearLayout>
 </ScrollView>
