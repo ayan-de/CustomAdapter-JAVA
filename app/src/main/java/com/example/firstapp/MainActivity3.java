@@ -27,7 +27,7 @@ public class MainActivity3 extends AppCompatActivity {
         teamIndia.add(new TeamIndia("Rishabh Pant","Batsman",R.drawable.family_younger_brother));
         teamIndia.add(new TeamIndia("Ganguly","Captain",R.drawable.family_younger_sister));
 
-        TeamAdapter Adapter = new TeamAdapter(this,teamIndia);
+        TeamAdapter Adapter = new TeamAdapter(this,teamIndia,R.color.blue);
 
         ListView listView = (ListView) findViewById(R.id.list);
 

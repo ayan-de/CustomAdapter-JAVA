@@ -11,14 +11,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
 public class TeamAdapter extends ArrayAdapter<TeamIndia> {
 
-    public TeamAdapter(Activity context, ArrayList<TeamIndia> teamIndia)
-    {
-        super(context,0,teamIndia);
+    private int colorResourceId;
+
+    public TeamAdapter(Activity context, ArrayList<TeamIndia> teamIndia, int colorresourceid) {
+        super(context, 0, teamIndia);
+        colorResourceId = colorresourceid;
     }
 
     @Override
@@ -42,13 +45,17 @@ public class TeamAdapter extends ArrayAdapter<TeamIndia> {
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
 
-        if(currentPlayer.hasImage()) {
+        if (currentPlayer.hasImage()) {
             imageView.setImageResource(currentPlayer.getImage());
             imageView.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             imageView.setVisibility(View.GONE);
         }
+
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(), colorResourceId);
+        textContainer.setBackgroundColor(color);
+        
         return listItemView;
     }
 }

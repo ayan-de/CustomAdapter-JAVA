@@ -15,7 +15,8 @@
         <TextView
             android:id="@+id/Activity1"
             style="@style/CategoryStyle"
-            android:background="@color/violet"
+            android:background="@color/tanColor"
+            android:textColor="@color/black"
             android:text="Activity1" />
 
         <TextView
