@@ -15,19 +15,14 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main1);
         ArrayList<TeamIndia> teamIndia = new ArrayList<TeamIndia>();
 
-        teamIndia.add(new TeamIndia("Viru", "Batsman"));
-        teamIndia.add(new TeamIndia("Sheru", "Batsman"));
-        teamIndia.add(new TeamIndia("Sachi", "Batsman"));
-        teamIndia.add(new TeamIndia("Jaddu", "All ROunder"));
-        teamIndia.add(new TeamIndia("Zah", "Steamer"));
-        teamIndia.add(new TeamIndia("veen", "Steamer"));
-        teamIndia.add(new TeamIndia("Mahi", "WK"));
-        teamIndia.add(new TeamIndia("Bhuvi", "Steamer"));
-        teamIndia.add(new TeamIndia("Rishu", "Batsman"));
-        teamIndia.add(new TeamIndia("Dada", "Captain"));
-        teamIndia.add(new TeamIndia("Ishu", "Steamer"));
-        teamIndia.add(new TeamIndia("Chahal", "Spinner"));
-        teamIndia.add(new TeamIndia("GOAT", "Spinner"));
+        teamIndia.add(new TeamIndia("Viru", "Batsman",R.drawable.color_red));
+        teamIndia.add(new TeamIndia("Sheru", "Batsman",R.drawable.color_black));
+        teamIndia.add(new TeamIndia("Sachi", "Batsman",R.drawable.color_brown));
+        teamIndia.add(new TeamIndia("Jaddu", "All ROunder",R.drawable.color_gray));
+        teamIndia.add(new TeamIndia("Zah", "Steamer",R.drawable.color_green));
+        teamIndia.add(new TeamIndia("veen", "Steamer",R.drawable.color_dusty_yellow));
+        teamIndia.add(new TeamIndia("Mahi", "WK",R.drawable.color_white));
+        teamIndia.add(new TeamIndia("Bhuvi", "Steamer",R.drawable.color_mustard_yellow));
 
         TeamAdapter Adapter = new TeamAdapter(this, teamIndia);
 
