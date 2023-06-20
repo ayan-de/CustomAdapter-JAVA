@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Activity1"
+            style="@style/CategoryStyle"
+            android:background="@color/violet"
+            android:text="Activity1" />
+
+        <TextView
+            android:id="@+id/Activity2"
+            style="@style/CategoryStyle"
+            android:background="@color/Indigo"
+            android:text="Activity2" />
+
+        <TextView
+            android:id="@+id/Activity3"
+            style="@style/CategoryStyle"
+            android:background="@color/blue"
+            android:text="Activity3" />
+
+        <TextView
+            android:id="@+id/Activity4"
+            style="@style/CategoryStyle"
+            android:background="@color/green"
+            android:text="Activity4" />
+
+        <TextView
+            android:id="@+id/Activity5"
+            style="@style/CategoryStyle"
+            android:background="@color/yellow"
+            android:text="Activity5" />
+
+        <TextView
+            android:id="@+id/Activity6"
+            style="@style/CategoryStyle"
+            android:background="@color/orange"
+            android:text="Activity6" />
+
+        <TextView
+            android:id="@+id/Activity7"
+            style="@style/CategoryStyle"
+            android:background="@color/red"
+            android:text="Activity7" />
+
+        <TextView
+            android:id="@+id/Activity8"
+            style="@style/CategoryStyle"
+            android:background="@color/red"
+            android:text="Activity8" />
+
+        <TextView
+            android:id="@+id/Activity9"
+            style="@style/CategoryStyle"
+            android:background="@color/red"
+            android:text="Activity9" />
+
+
+    </LinearLayout>
+</ScrollView>
