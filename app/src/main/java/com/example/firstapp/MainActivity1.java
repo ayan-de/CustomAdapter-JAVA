@@ -2,6 +2,8 @@ package com.example.firstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,24 @@ public class MainActivity1 extends AppCompatActivity {
 
     private MediaPlayer mediaplayer;
 
+    private AudioManager audiomanager;
+
+    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK) {
+                //pause playback
+                mediaplayer.pause();
+                mediaplayer.seekTo(0);
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                //resume playback
+                mediaplayer.start();
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                //stop playback
+                releaseMediaPlayer();
+            }
+        }
+    };
+
     private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaplayer) {
@@ -26,6 +46,10 @@ public class MainActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
+
+        //1-start audio focus
+        audiomanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
 
         final ArrayList<TeamIndia> teamIndia = new ArrayList<TeamIndia>();
 
@@ -51,16 +75,20 @@ public class MainActivity1 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 TeamIndia teamindia = teamIndia.get(position);
                 releaseMediaPlayer();
-                mediaplayer = MediaPlayer.create(MainActivity1.this, teamindia.getAudioResourceId());
-                mediaplayer.start();
-                mediaplayer.setOnCompletionListener(completionListener);
+                //2-Request Audio Focus
+                int result = audiomanager.requestAudioFocus(mOnAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mediaplayer = MediaPlayer.create(MainActivity1.this, teamindia.getAudioResourceId());
+                    mediaplayer.start();
+                    mediaplayer.setOnCompletionListener(completionListener);
+                }
             }
         });
 
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
@@ -70,6 +98,7 @@ public class MainActivity1 extends AppCompatActivity {
             mediaplayer.release();
 
             mediaplayer = null;
+            audiomanager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
