@@ -54,6 +54,13 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     private void releaseMediaPlayer() {
         if (mediaplayer != null) {
             mediaplayer.release();
