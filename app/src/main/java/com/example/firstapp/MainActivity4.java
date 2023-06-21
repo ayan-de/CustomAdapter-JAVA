@@ -13,6 +13,14 @@ import java.util.ArrayList;
 public class MainActivity4 extends AppCompatActivity {
 
     private MediaPlayer mediaplayer;
+
+    private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaplayer) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +47,19 @@ public class MainActivity4 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 TeamIndia teamindia = teamIndia.get(position);
+                releaseMediaPlayer();
                 mediaplayer = MediaPlayer.create(MainActivity4.this,teamindia.getAudioResourceId());
                 mediaplayer.start();
+                mediaplayer.setOnCompletionListener(completionListener);
             }
         });
+    }
+
+    private void releaseMediaPlayer() {
+        if (mediaplayer != null) {
+            mediaplayer.release();
+
+            mediaplayer = null;
+        }
     }
 }
